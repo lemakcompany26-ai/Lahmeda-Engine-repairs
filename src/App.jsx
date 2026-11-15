@@ -1,25 +1,35 @@
-import Navbar from "./components/Navbar";
-import Services from "./components/Services";
-import ImageGallery from "./components/ImageGallery";
-import Testimonials from "./components/Testimonials";
-import Contact from "./components/Contact";
-import FloatingWhatsApp from "./components/FloatingWhatsApp";
-import Footer from "./components/Footer";import ImageGallery from "./components/ImageGallery";
+
 import React, { useState } from "react";
 import {
-  Menu, X, Zap, Settings, Wrench, Bike, Tv,
-  Refrigerator, Cable, ShieldCheck, Clock,
-  BadgeCheck, Phone, Mail, MapPin, ArrowRight,
-  MessageCircle, Star, ChevronRight
+  Menu,
+  X,
+  Zap,
+  Settings,
+  Wrench,
+  Bike,
+  Tv,
+  Refrigerator,
+  Cable,
+  ShieldCheck,
+  Clock,
+  BadgeCheck,
+  Phone,
+  Mail,
+  MapPin,
+  ArrowRight,
+  MessageCircle,
+  Star,
+  ChevronRight,
 } from "lucide-react";
 import "./App.css";
 
 const BUSINESS = {
   name: "LAHMEDA",
-  phone: "2349064471571", // Replace with WhatsApp number
+  phone: "2349064471571",
   displayPhone: "+234 9064471571",
   email: "Rasak2916@gmail.com",
-  location: "No 26 ayepe zone d Ayegbami Ayepe off new ife road,oyo state, Nigeria",
+  location:
+    "No 26 Ayepe Zone D, Ayegbami, Ayepe, off New Ife Road, Oyo State, Nigeria",
 };
 
 const services = [
@@ -88,22 +98,23 @@ const projects = [
   {
     title: "Generator Maintenance",
     image:
-      "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=800",
+      "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?w=1000",
   },
   {
     title: "Electrical Installation",
     image:
-      "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800",
+      "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1000",
   },
   {
     title: "Mechanical Workshop",
     image:
-      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800",
+      "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=1000",
   },
 ];
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+
   const [form, setForm] = useState({
     name: "",
     phone: "",
@@ -116,22 +127,42 @@ export default function App() {
 
   const submitQuote = (e) => {
     e.preventDefault();
-    const message =
-      `Hello LAHMEDA Mechanical Engineering.\n\n` +
-      `Name: ${form.name}\n` +
-      `Phone: ${form.phone}\n` +
-      `Service: ${form.service}\n` +
-      `Details: ${form.message}`;
-    window.open(whatsapp(message), "_blank");
+
+    const message = [
+      "Hello LAHMEDA Mechanical Engineering.",
+      "",
+      `Name: ${form.name}`,
+      `Phone: ${form.phone}`,
+      `Service: ${form.service}`,
+      `Details: ${form.message || "No additional details"}`,
+    ].join("\n");
+
+    window.open(
+      whatsapp(message),
+      "_blank",
+      "noopener,noreferrer"
+    );
   };
 
   const closeMenu = () => setMenuOpen(false);
 
+  const navigation = [
+    ["Home", "#home"],
+    ["Services", "#services"],
+    ["About", "#about"],
+    ["Why Us", "#why-us"],
+    ["Gallery", "#gallery"],
+    ["Contact", "#contact"],
+  ];
+
   return (
     <div className="app">
+      {/* NAVIGATION */}
       <header className="navbar">
         <a href="#home" className="brand" onClick={closeMenu}>
-          <span className="brand-icon"><Zap size={27} /></span>
+          <span className="brand-icon">
+            <Zap size={27} />
+          </span>
           <span>
             <strong>LAHMEDA</strong>
             <small>MECHANICAL ENGINEERING</small>
@@ -142,38 +173,41 @@ export default function App() {
           className="menu-toggle"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle navigation"
+          aria-expanded={menuOpen}
         >
           {menuOpen ? <X /> : <Menu />}
         </button>
 
         <nav className={menuOpen ? "nav-links open" : "nav-links"}>
-          {["Home", "Services", "About", "Why Us", "Gallery", "Contact"].map(
-            (item) => (
-              <a
-                key={item}
-                href={`#${item.toLowerCase().replace(" ", "-")}`}
-                onClick={closeMenu}
-              >
-                {item}
-              </a>
-            )
-          )}
-          <a className="nav-cta" href="#contact" onClick={closeMenu}>
+          {navigation.map(([label, href]) => (
+            <a key={label} href={href} onClick={closeMenu}>
+              {label}
+            </a>
+          ))}
+
+          <a
+            className="nav-cta"
+            href="#contact"
+            onClick={closeMenu}
+          >
             Get a Quote <ArrowRight size={16} />
           </a>
         </nav>
       </header>
 
       <main>
+        {/* HERO */}
         <section className="hero" id="home">
           <div className="hero-content">
             <span className="eyebrow">
               YOUR TRUSTED ENGINEERING PARTNER
             </span>
+
             <h1>
               LAHMEDA
               <span>Mechanical Engineering</span>
             </h1>
+
             <p>
               Expert repair and maintenance services for generators,
               motorcycles, electronics, home appliances and electrical
@@ -181,20 +215,29 @@ export default function App() {
             </p>
 
             <div className="hero-points">
-              <span><ShieldCheck /> Reliable workmanship</span>
-              <span><Clock /> Responsive service</span>
-              <span><BadgeCheck /> Quality solutions</span>
+              <span>
+                <ShieldCheck /> Reliable workmanship
+              </span>
+              <span>
+                <Clock /> Responsive service
+              </span>
+              <span>
+                <BadgeCheck /> Quality solutions
+              </span>
             </div>
 
             <div className="hero-actions">
               <a className="btn btn-yellow" href="#contact">
                 Book a Service <ArrowRight size={18} />
               </a>
+
               <a
                 className="btn btn-outline"
-                href={whatsapp("Hello LAHMEDA, I need your services.")}
+                href={whatsapp(
+                  "Hello LAHMEDA, I need your services."
+                )}
                 target="_blank"
-                rel="noreferrer"
+                rel="noopener noreferrer"
               >
                 <MessageCircle size={18} /> WhatsApp Us
               </a>
@@ -206,19 +249,30 @@ export default function App() {
               src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?w=1200"
               alt="Engineering technician at work"
             />
+
             <div className="image-label">
               <Zap /> Professional Repair & Maintenance
             </div>
           </div>
         </section>
 
+        {/* TRUST STRIP */}
         <section className="trust-strip">
-          <div><ShieldCheck /> Quality workmanship</div>
-          <div><Clock /> Efficient service</div>
-          <div><Settings /> Technical expertise</div>
-          <div><BadgeCheck /> Customer satisfaction</div>
+          <div>
+            <ShieldCheck /> Quality workmanship
+          </div>
+          <div>
+            <Clock /> Efficient service
+          </div>
+          <div>
+            <Settings /> Technical expertise
+          </div>
+          <div>
+            <BadgeCheck /> Customer satisfaction
+          </div>
         </section>
 
+        {/* SERVICES */}
         <section className="section services" id="services">
           <div className="section-heading">
             <span className="eyebrow">WHAT WE DO</span>
@@ -232,17 +286,25 @@ export default function App() {
           <div className="service-grid">
             {services.map((service) => {
               const Icon = service.icon;
+
               return (
-                <article className="service-card" key={service.title}>
-                  <div className="service-icon"><Icon size={30} /></div>
+                <article
+                  className="service-card"
+                  key={service.title}
+                >
+                  <div className="service-icon">
+                    <Icon size={30} />
+                  </div>
+
                   <h3>{service.title}</h3>
                   <p>{service.description}</p>
+
                   <a
                     href={whatsapp(
-                      `Hello, I need your ${service.title} service.`
+                      `Hello LAHMEDA, I need your ${service.title} service.`
                     )}
                     target="_blank"
-                    rel="noreferrer"
+                    rel="noopener noreferrer"
                   >
                     Request service <ChevronRight size={16} />
                   </a>
@@ -252,43 +314,62 @@ export default function App() {
           </div>
         </section>
 
+        {/* ABOUT */}
         <section className="about section" id="about">
           <div className="about-image">
             <img
               src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?w=1000"
               alt="Mechanical engineering work"
+              loading="lazy"
             />
           </div>
+
           <div className="about-content">
             <span className="eyebrow">ABOUT OUR COMPANY</span>
-            <h2>Keeping Your Equipment Running Efficiently</h2>
+
+            <h2>
+              Keeping Your Equipment Running Efficiently
+            </h2>
+
             <p>
               LAHMEDA Mechanical Engineering provides mechanical and
               electrical repair, servicing and maintenance solutions.
               We work with generators, motorcycles, electronics,
               household appliances, wiring systems and other equipment.
             </p>
+
             <p>
               Our goal is to provide dependable service, practical
               solutions and professional attention to every project.
             </p>
+
             <a className="btn btn-yellow" href="#contact">
               Work With Us <ArrowRight size={18} />
             </a>
           </div>
         </section>
 
+        {/* WHY CHOOSE US */}
         <section className="why section" id="why-us">
           <div className="section-heading">
-            <span className="eyebrow">THE LAHMEDA DIFFERENCE</span>
+            <span className="eyebrow">
+              THE LAHMEDA DIFFERENCE
+            </span>
             <h2>Why Choose Us?</h2>
-            <p>Reliable engineering support when you need it.</p>
+            <p>
+              Reliable engineering support when you need it.
+            </p>
           </div>
+
           <div className="reason-grid">
             {reasons.map((reason) => {
               const Icon = reason.icon;
+
               return (
-                <article className="reason-card" key={reason.title}>
+                <article
+                  className="reason-card"
+                  key={reason.title}
+                >
                   <Icon size={35} />
                   <h3>{reason.title}</h3>
                   <p>{reason.text}</p>
@@ -298,46 +379,73 @@ export default function App() {
           </div>
         </section>
 
-        <section className="gallery section" id="gallery"><ImageGallery />
+        {/* PROJECT GALLERY */}
+        <section className="gallery section" id="gallery">
           <div className="section-heading">
             <span className="eyebrow">OUR WORK</span>
             <h2>Engineering in Action</h2>
-            <p>A look at the kind of work we do.</p>
+            <p>
+              A look at the kind of work we do.
+            </p>
           </div>
+
           <div className="gallery-grid">
             {projects.map((project) => (
-              <article className="gallery-card" key={project.title}>
-                <img src={project.image} alt={project.title} />
+              <article
+                className="gallery-card"
+                key={project.title}
+              >
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  loading="lazy"
+                />
                 <h3>{project.title}</h3>
               </article>
             ))}
           </div>
         </section>
 
+        {/* CONTACT */}
         <section className="contact section" id="contact">
           <div className="contact-info">
-            <span className="eyebrow">LET'S GET IT FIXED</span>
-            <h2>Need a Repair or Maintenance Service?</h2>
+            <span className="eyebrow">
+              LET'S GET IT FIXED
+            </span>
+
+            <h2>
+              Need a Repair or Maintenance Service?
+            </h2>
+
             <p>
               Tell us what needs attention. Send a service request
               and our team can discuss the next steps with you.
             </p>
 
             <div className="contact-line">
-              <Phone /> <span>{BUSINESS.displayPhone}</span>
+              <Phone />
+              <span>{BUSINESS.displayPhone}</span>
             </div>
+
             <div className="contact-line">
-              <Mail /> <span>{BUSINESS.email}</span>
+              <Mail />
+              <span>{BUSINESS.email}</span>
             </div>
+
             <div className="contact-line">
-              <MapPin /> <span>{BUSINESS.location}</span>
+              <MapPin />
+              <span>{BUSINESS.location}</span>
             </div>
           </div>
 
           <form className="quote-form" onSubmit={submitQuote}>
             <h3>Request a Service Quote</h3>
-            <label>Your full name</label>
+
+            <label htmlFor="customer-name">
+              Your full name
+            </label>
             <input
+              id="customer-name"
               required
               value={form.name}
               onChange={(e) =>
@@ -346,8 +454,11 @@ export default function App() {
               placeholder="Enter your name"
             />
 
-            <label>Phone number</label>
+            <label htmlFor="customer-phone">
+              Phone number
+            </label>
             <input
+              id="customer-phone"
               required
               type="tel"
               value={form.phone}
@@ -357,20 +468,31 @@ export default function App() {
               placeholder="Your phone number"
             />
 
-            <label>Service required</label>
+            <label htmlFor="customer-service">
+              Service required
+            </label>
             <select
+              id="customer-service"
               value={form.service}
               onChange={(e) =>
                 setForm({ ...form, service: e.target.value })
               }
             >
-              {services.map((s) => (
-                <option key={s.title}>{s.title}</option>
+              {services.map((service) => (
+                <option
+                  key={service.title}
+                  value={service.title}
+                >
+                  {service.title}
+                </option>
               ))}
             </select>
 
-            <label>Describe the problem</label>
+            <label htmlFor="customer-message">
+              Describe the problem
+            </label>
             <textarea
+              id="customer-message"
               rows="4"
               value={form.message}
               onChange={(e) =>
@@ -379,9 +501,13 @@ export default function App() {
               placeholder="Tell us about the equipment or fault..."
             />
 
-            <button className="btn btn-yellow submit-btn" type="submit">
+            <button
+              className="btn btn-yellow submit-btn"
+              type="submit"
+            >
               Send Request on WhatsApp <ArrowRight size={18} />
             </button>
+
             <small>
               Your request will open WhatsApp for you to send.
             </small>
@@ -389,16 +515,22 @@ export default function App() {
         </section>
       </main>
 
+      {/* FOOTER */}
       <footer className="footer">
         <div className="footer-main">
           <a href="#home" className="brand">
-            <span className="brand-icon"><Zap size={27} /></span>
+            <span className="brand-icon">
+              <Zap size={27} />
+            </span>
+
             <span>
               <strong>LAHMEDA</strong>
               <small>MECHANICAL ENGINEERING</small>
             </span>
           </a>
+
           <p>Fix Today. Power Tomorrow.</p>
+
           <div className="footer-links">
             <a href="#home">Home</a>
             <a href="#services">Services</a>
@@ -406,20 +538,25 @@ export default function App() {
             <a href="#contact">Contact</a>
           </div>
         </div>
+
         <div className="footer-bottom">
           © {new Date().getFullYear()} LAHMEDA Mechanical Engineering.
           All rights reserved.
         </div>
       </footer>
 
+      {/* FLOATING WHATSAPP */}
       <a
         className="whatsapp-float"
-        href={whatsapp("Hello LAHMEDA, I would like to make an enquiry.")}
+        href={whatsapp(
+          "Hello LAHMEDA, I would like to make an enquiry."
+        )}
         target="_blank"
-        rel="noreferrer"
+        rel="noopener noreferrer"
         aria-label="Chat with LAHMEDA on WhatsApp"
       >
         <MessageCircle size={26} />
       </a>
     </div>
   );
+}
