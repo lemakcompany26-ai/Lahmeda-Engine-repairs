@@ -1,0 +1,100 @@
+
+.lahmeda-navbar {
+  height: 82px;
+  padding: 0 6%;
+  background: #071b35;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.lahmeda-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: white;
+  font-weight: 900;
+  font-size: 22px;
+  text-decoration: none;
+}
+
+.logo-icon {
+  color: #ffc400;
+}
+
+.lahmeda-logo small {
+  display: block;
+  font-size: 9px;
+  letter-spacing: 2px;
+  color: #ffc400;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.nav-links a:hover {
+  color: #ffc400;
+}
+
+.nav-links .nav-quote {
+  background: #ffc400;
+  color: #071b35;
+  padding: 13px 20px;
+  border-radius: 5px;
+}
+
+.nav-toggle {
+  display: none;
+  background: transparent;
+  border: 0;
+  color: white;
+}
+
+@media (max-width: 760px) {
+  .lahmeda-navbar {
+    height: 70px;
+  }
+
+  .nav-toggle {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: #071b35;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 15px 6% 25px;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 14px 0;
+  }
+
+  .nav-links .nav-quote {
+    text-align: center;
+    margin-top: 10px;
+  }
+}
