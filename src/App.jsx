@@ -292,7 +292,7 @@ export default function App() {
           </div>
         </section>
 
-        <section className="gallery section" id="gallery">
+        <section className="gallery section" id="gallery"><ImageGallery />
           <div className="section-heading">
             <span className="eyebrow">OUR WORK</span>
             <h2>Engineering in Action</h2>
