@@ -1,4 +1,10 @@
+import Navbar from "./components/Navbar";
+import Services from "./components/Services";
 import ImageGallery from "./components/ImageGallery";
+import Testimonials from "./components/Testimonials";
+import Contact from "./components/Contact";
+import FloatingWhatsApp from "./components/FloatingWhatsApp";
+import Footer from "./components/Footer";import ImageGallery from "./components/ImageGallery";
 import React, { useState } from "react";
 import {
   Menu, X, Zap, Settings, Wrench, Bike, Tv,
