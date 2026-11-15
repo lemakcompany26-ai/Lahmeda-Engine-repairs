@@ -1,0 +1,66 @@
+
+.lahmeda-testimonials {
+  padding: 85px 6%;
+  background: #071b35;
+}
+
+.testimonial-heading {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.testimonial-heading span {
+  color: #ffc400;
+  letter-spacing: 3px;
+  font-weight: 800;
+}
+
+.testimonial-heading h2 {
+  color: white;
+  font-size: 35px;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.testimonial-card {
+  padding: 30px;
+  border-radius: 12px;
+  background: white;
+}
+
+.quote-icon {
+  color: #f28c00;
+}
+
+.review-stars {
+  display: flex;
+  gap: 5px;
+  color: #f2a900;
+  margin: 18px 0;
+}
+
+.testimonial-card p {
+  color: #64748b;
+  line-height: 1.8;
+}
+
+.testimonial-card h3 {
+  color: #071b35;
+  margin-bottom: 5px;
+}
+
+.testimonial-card small {
+  color: #64748b;
+}
+
+@media (max-width: 800px) {
+  .testimonial-grid {
+    grid-template-columns: 1fr;
+  }
+}
