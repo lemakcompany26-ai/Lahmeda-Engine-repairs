@@ -1,0 +1,92 @@
+
+.lahmeda-services {
+  padding: 90px 6%;
+  background: #fff;
+}
+
+.services-heading {
+  text-align: center;
+  max-width: 650px;
+  margin: 0 auto 45px;
+}
+
+.services-heading span {
+  color: #f28c00;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.services-heading h2 {
+  color: #071b35;
+  font-size: clamp(28px, 4vw, 42px);
+  margin: 12px 0;
+}
+
+.services-heading p {
+  color: #64748b;
+  line-height: 1.7;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 22px;
+  max-width: 1250px;
+  margin: auto;
+}
+
+.service-card {
+  padding: 28px 22px;
+  border: 1px solid #e5eaf0;
+  border-radius: 12px;
+  transition: 0.3s;
+  background: white;
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: #ffc400;
+  box-shadow: 0 12px 30px rgba(7, 27, 53, 0.09);
+}
+
+.service-icon {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: #fff5ce;
+  color: #071b35;
+}
+
+.service-card h3 {
+  color: #071b35;
+  font-size: 18px;
+  margin: 20px 0 10px;
+}
+
+.service-card p {
+  color: #64748b;
+  font-size: 14px;
+  line-height: 1.7;
+  min-height: 72px;
+}
+
+.service-card a {
+  color: #d17a00;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+@media (max-width: 950px) {
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .services-grid {
+    grid-template-columns: 1fr;
+  }
+}
