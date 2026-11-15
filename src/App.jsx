@@ -405,6 +405,47 @@ export default function App() {
             ))}
           </div>
         </section>
+        
+{/* CUSTOMER REVIEWS */}
+<section className="testimonials section" id="reviews">
+  <div className="section-heading">
+    <span className="eyebrow">CUSTOMER FEEDBACK</span>
+    <h2>What Our Customers Say</h2>
+    <p>We value every customer and every successful repair.</p>
+  </div>
+
+  <div className="testimonial-grid">
+    <article className="testimonial-card">
+      <div className="review-stars">★★★★★</div>
+      <p>
+        "Professional service and good attention to detail.
+        My generator was properly checked and serviced."
+      </p>
+      <h3>Generator Service Customer</h3>
+      <span>LAHMEDA Customer</span>
+    </article>
+
+    <article className="testimonial-card">
+      <div className="review-stars">★★★★★</div>
+      <p>
+        "The repair process was explained clearly.
+        I appreciate the professional approach."
+      </p>
+      <h3>Electronics Repair Customer</h3>
+      <span>LAHMEDA Customer</span>
+    </article>
+
+    <article className="testimonial-card">
+      <div className="review-stars">★★★★★</div>
+      <p>
+        "Good communication and helpful service.
+        I would contact them again for maintenance."
+      </p>
+      <h3>Maintenance Customer</h3>
+      <span>LAHMEDA Customer</span>
+    </article>
+  </div>
+</section>
 
         {/* CONTACT */}
         <section className="contact section" id="contact">
