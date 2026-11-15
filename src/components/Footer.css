@@ -1,0 +1,76 @@
+
+.lahmeda-footer {
+  background: #06152a;
+  color: white;
+  padding: 65px 6% 20px;
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+  gap: 35px;
+  max-width: 1250px;
+  margin: auto;
+}
+
+.footer-brand h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ffc400;
+}
+
+.footer-brand > span {
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.footer-content h3 {
+  color: #ffc400;
+  font-size: 17px;
+}
+
+.footer-content a {
+  display: block;
+  color: #d0d9e5;
+  text-decoration: none;
+  margin: 13px 0;
+  font-size: 14px;
+}
+
+.footer-content a:hover {
+  color: #ffc400;
+}
+
+.footer-content p {
+  color: #d0d9e5;
+  line-height: 1.8;
+  font-size: 14px;
+}
+
+.footer-content > div:last-child p {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.footer-bottom {
+  border-top: 1px solid #24344a;
+  text-align: center;
+  margin-top: 45px;
+  padding-top: 22px;
+  color: #aab8c9;
+  font-size: 13px;
+}
+
+@media (max-width: 850px) {
+  .footer-content {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 520px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+  }
+}
