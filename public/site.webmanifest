@@ -1,0 +1,17 @@
+
+{
+  "name": "LAHMEDA Mechanical Engineering",
+  "short_name": "LAHMEDA",
+  "description": "Professional mechanical repairs, electrical services and equipment maintenance.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#071B35",
+  "theme_color": "#071B35",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
