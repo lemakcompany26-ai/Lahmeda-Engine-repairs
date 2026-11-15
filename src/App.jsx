@@ -1,4 +1,4 @@
-
+import ImageGallery from "./components/ImageGallery";
 import React, { useState } from "react";
 import {
   Menu, X, Zap, Settings, Wrench, Bike, Tv,
